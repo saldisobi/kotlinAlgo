@@ -1,0 +1,4 @@
+package recursion
+
+class PalindrommicPartition {
+}
