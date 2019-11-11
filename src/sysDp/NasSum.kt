@@ -25,10 +25,10 @@ class NasSum {
     fun getWaysForN(n: Int): Int {
         if (n < 0)
             return 0
-        if (n == 0 || n == 1)
-            return 1
+        return if (n == 0 || n == 1)
+            1
         else
-            return getWaysForN(n - 1) + getWaysForN(n - 2) + getWaysForN(n - 4)
+            getWaysForN(n - 1) + getWaysForN(n - 2) + getWaysForN(n - 4)
 
 
     }
