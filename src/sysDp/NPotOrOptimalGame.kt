@@ -10,7 +10,7 @@ class NPotOrOptimalGame(var inputArray: IntArray) {
     }
 
 
-    fun getMaxProfit() {
+    fun getMaxProfit(): Int {
 
         for (interval in 0 until inputArray.size) {
             var i = 0
@@ -27,6 +27,7 @@ class NPotOrOptimalGame(var inputArray: IntArray) {
                 var a: Int = 0
                 var b: Int = 0
                 var c: Int = 0
+                ////////////////////////////
                 if (i + 2 <= j)
                     a = mDp[i + 2][j]
 
@@ -39,9 +40,11 @@ class NPotOrOptimalGame(var inputArray: IntArray) {
                     c = mDp[i][j - 2]
 
 
-                mDp[i][j] = max(inputArray[i] + min(a, b),inputArray[j] + min(b, c))
+                mDp[i][j] = max(inputArray[i] + min(a, b), inputArray[j] + min(b, c))
             }
         }
+
+        return mDp[0][inputArray.size - 1];
     }
 
 }
@@ -49,5 +52,5 @@ class NPotOrOptimalGame(var inputArray: IntArray) {
 fun main() {
 
 
-    println(NPotOrOptimalGame( intArrayOf(1, 2, 3, 4, 5)).getMaxProfit())
+    println(NPotOrOptimalGame(intArrayOf(1, 2, 3, 4, 5)).getMaxProfit())
 }
